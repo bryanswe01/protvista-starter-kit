@@ -2,6 +2,15 @@
 
 A template repository for putting your own protein annotations on screen next to UniProt's — no build step, no npm, no JavaScript.
 
+<!-- protvista:unpublished:start -->
+**Read this first: this template does not work yet**
+
+> ProtVista 5.0.0-beta.3 has not been published to npm. `index.html` pins `protvista-uniprot@5.0.0-beta.3` on jsDelivr, that address returns "not found" today, and the page shows a "Could not load the viewer" box instead of a protein.
+>
+> Everything else in the kit is real and final — the config, the sample data, the validation, the layout. Nothing here needs to change when 5.0.0-beta.3 ships; the same files simply start working. Watch [the releases page](https://github.com/ebi-webcomponents/protvista/releases), then reload.
+>
+> To see the same configuration working right now, open the [ProtVista playground](https://ebi-webcomponents.github.io/protvista/playground/).
+<!-- protvista:unpublished:end -->
 
 ## Use it
 
@@ -69,6 +78,13 @@ data: ./data/my-features.csv
 ```
 
 One thing that catches people out: paths in `data:` are resolved against **the page**, not against `config.yaml`. They start from the folder holding `index.html`. Keep your files under `data/` and the `./data/…` form always works.
+
+`type` isn't free text once it's drawn — ProtVista recognises 45 type names
+(UniProt feature types plus a few for peptides, epitopes and structure
+coverage), each with its own default colour and shape, and renders anything
+else as a black rectangle. See
+[Feature type and shape vocabulary](https://ebi-webcomponents.github.io/protvista/type-and-shape-vocabulary)
+for the full list.
 
 The samples all use [`P05067`](https://www.uniprot.org/uniprotkb/P05067) — amyloid precursor protein, 770 residues — so the coordinates in them make sense. Change `accession:` to your own protein and your own coordinates together.
 
